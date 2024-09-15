@@ -1,4 +1,4 @@
-URL PWS: http://muhammad-yahya32-cropper.pbp.cs.ui.ac.id/
+URL PWS: http://muhammad-yahya32-sigmart.pbp.cs.ui.ac.id/
 
 1. Bagaimana step by step saya mengerjakan tugas ini.
 - Membuat sebuah proyek Django baru.
