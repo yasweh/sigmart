@@ -13,6 +13,8 @@ Dalam direktori utama, saya menginisiasi direktori bernama main.
 
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
+![Bagan](images/bagan.png)
+
 ### Jelaskan fungsi git dalam pengembangan perangkat lunak!
 Git merupakan sistem yang berfungsi sebagai version control. Version control secara singkat adalah sistem yang memudahkan pengembang perangkat lunak untuk melacak perubahan yang terjadi dalam kodenya serta dapat kembali ke versi kode yang diinginkan jika terjadi kesalahan dalam pengembangan.
 
@@ -40,6 +42,7 @@ Method is_valid() pada form Django digunakan untuk memeriksa apakah data yang di
 csrf_token dibutuhkan pada form di Django untuk mencegah serangan CSRF (Cross-Site Request Forgery), di mana penyerang dapat mengirimkan permintaan berbahaya yang tampak seperti berasal dari pengguna sah. Jika kita tidak menambahkan csrf_token, form kita menjadi rentan terhadap serangan ini, di mana penyerang bisa memanfaatkan kelemahan tersebut untuk mengakses atau memanipulasi data sensitif tanpa sepengetahuan pengguna. Dengan menambahkan csrf_token, server memastikan bahwa setiap permintaan form benar-benar berasal dari pengguna yang mengakses situs secara sah.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Saya mainly menggunakan kode yang ada di tutorial, namun dengan beberapa modifikasi terutama pada forms.py, views.py, dan create_mood_entry.html saya ubah menjadi tombol form untuk menambahkan item pada marketplace yang saya buat. Dengan variabel item_name, description, serta price. Perubahan ini dilakukan pada forms.py dengan mengubah nama class serta list "fields". Lalu views.py disesuaikan dengan fields yang saya ubah serta nama class form tersebut. 
 
 ### Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
@@ -47,3 +50,19 @@ csrf_token dibutuhkan pada form di Django untuk mencegah serangan CSRF (Cross-Si
  ![JSON](images/json.png)
  ![XML by ID](images/xml_by_id.png)
  ![JSON by ID](images/json_by_id.png)
+
+ ## Tugas 4
+
+### Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Django UserCreationForm adalah form bawaan yang digunakan untuk membuat akun pengguna baru. Form ini menyediakan field dasar seperti username, password1, dan password2 (untuk verifikasi). Kelebihannya adalah kemudahan dalam penggunaan, karena Django telah menyediakan validasi keamanan dasar seperti memastikan kedua password cocok dan mematuhi kebijakan password yang diterapkan. Selain itu, UserCreationForm mudah diperluas atau disesuaikan. Kekurangannya adalah keterbatasan fungsionalitas default, seperti tidak menyertakan field tambahan yang mungkin diperlukan, misalnya alamat email, nama lengkap, atau informasi profil lain, sehingga membutuhkan kustomisasi jika diperlukan.
+
+### Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi adalah proses memverifikasi identitas pengguna, seperti login dengan username dan password untuk memastikan pengguna benar-benar adalah siapa yang mereka klaim. Otorisasi adalah proses menentukan apa yang boleh atau tidak boleh dilakukan oleh pengguna yang sudah terautentikasi, misalnya menentukan apakah pengguna boleh mengakses halaman admin atau melakukan tindakan tertentu. Keduanya penting dalam Django karena autentikasi memastikan pengguna yang sah, sedangkan otorisasi mencegah akses yang tidak sah terhadap sumber daya atau fitur yang dilindungi, menjaga keamanan aplikasi.
+
+### Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah file kecil yang disimpan di browser pengguna dan digunakan untuk menyimpan informasi seperti preferensi pengguna atau data sesi. Dalam Django, cookies digunakan untuk mengelola data sesi pengguna dengan cara menyimpan ID sesi yang unik di browser pengguna. Django kemudian mengaitkan ID tersebut dengan data sesi di server. Ini memungkinkan server untuk melacak status pengguna yang sudah login atau preferensi pengguna di antara permintaan HTTP yang bersifat stateless.
+
+### Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Penggunaan cookies tidak sepenuhnya aman secara default karena ada risiko seperti serangan cross-site scripting (XSS) atau cross-site request forgery (CSRF) yang dapat mengeksploitasi cookies. Django memiliki beberapa pengaturan keamanan, seperti flag HttpOnly yang mencegah akses cookies oleh JavaScript, dan flag Secure yang memastikan cookies hanya dikirimkan melalui HTTPS. Namun, jika pengaturan ini tidak dikonfigurasi dengan benar atau ada kerentanan XSS, cookies bisa dicuri oleh penyerang, yang berpotensi menyebabkan pembajakan sesi.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
