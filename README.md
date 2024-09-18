@@ -44,7 +44,7 @@ csrf_token dibutuhkan pada form di Django untuk mencegah serangan CSRF (Cross-Si
 
  Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
- ![XML](images/img.jpg)
- ![JSON](images/img.jpg)
- ![XML by ID](images/img.jpg)
- ![JSON by ID](images/img.jpg)
+ ![XML](images/xml.png)
+ ![JSON](images/json.png)
+ ![XML by ID](images/xml_by_id.png)
+ ![JSON by ID](images/json_by_id.png)
