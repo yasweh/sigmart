@@ -1,5 +1,6 @@
 # URL PWS: http://muhammad-yahya32-sigmart.pbp.cs.ui.ac.id/
 
+## Tugas 2
 ### Bagaimana step by step saya mengerjakan tugas ini.
 - Membuat sebuah proyek Django baru. Dengan menginisiasi Django di folder lokal menggunakan prompt 
 Saya membuat direktori baru dengan menggunakan mkdir di command prompt.
