@@ -8,9 +8,10 @@ def show_main(request):
     mood_entries = MoodEntry.objects.all()
 
     context = {
-        'name': 'Pak Bepe',
-        'class': 'PBP D',
-        'npm': '2306123456',
+        'Name': '+1000 Rizz',
+        'Price': '30k Dollars',
+        'Description': 'Gives you 1000 point of rizz',
+        'Type': 'Consumable',
         'mood_entries': mood_entries
     }
 
