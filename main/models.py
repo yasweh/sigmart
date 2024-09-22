@@ -9,7 +9,3 @@ class AddItemEntry(models.Model):
     time = models.DateField(auto_now_add=True)
     description = models.TextField()
     price = models.IntegerField()
-
-    @property
-    def is_mood_strong(self):
-        return self.price > 5
