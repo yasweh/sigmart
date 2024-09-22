@@ -2,15 +2,26 @@
 
 ## Tugas 2
 ### Bagaimana step by step saya mengerjakan tugas ini.
-- Membuat sebuah proyek Django baru. Dengan menginisiasi Django di folder lokal menggunakan prompt 
-Saya membuat direktori baru dengan menggunakan mkdir di command prompt.
-- Membuat aplikasi dengan nama main pada proyek tersebut.
-Dalam direktori utama, saya menginisiasi direktori bernama main.
-- Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
-- Membuat model pada aplikasi main dengan nama Product dan memiliki atribut wajib nama, harga, dan deskripsi.
-- Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
-- Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
-- Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+##### 1.  Membuat sebuah proyek Django baru.
+Saya membuat direktori baru sebagai basis untuk aplikasi Django.
+
+##### 2. Membuat aplikasi dengan nama main pada proyek tersebut.
+Dalam direktori utama, saya menginisiasi app bernama main dengan python manage.py startapp main.
+
+##### 3. Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
+Dengan import path dan main, lalu menambahkan 'main' ke urls.py pada direktori main (bukan root folder) serta menambahkan path ke main.
+
+##### 4. Membuat model pada aplikasi main dengan nama product dan memiliki atribut wajib nama, harga, dan deskripsi.
+Yaitu dengan menggunakan models. Saya memberi nama class add_item_entry untuk menambahkan item di e-commerce. Models tersebut saya assign dengan atribut nama, deskripsi, harga, dan tipe.
+
+##### 5. Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
+Dengan menginisiasi variabel context, saya bisa menampilkan informasi yang saya unggah di dictionary context dengan me-return render(request, "main.html", context) dari fungsi show_main.
+
+##### 6. Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
+Dengan menambahkan path path('', include('main.urls')) pada urls.py direktori root.
+
+##### 7. Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+Dengan menggunakan git add, commit, push ke PWS dengan command yang sudah diberikan pada PWS.
 
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
@@ -67,3 +78,16 @@ Cookies adalah file kecil yang disimpan di browser pengguna dan digunakan untuk 
 Penggunaan cookies tidak sepenuhnya aman secara default karena ada risiko seperti serangan cross-site scripting (XSS) atau cross-site request forgery (CSRF) yang dapat mengeksploitasi cookies. Django memiliki beberapa pengaturan keamanan, seperti flag HttpOnly yang mencegah akses cookies oleh JavaScript, dan flag Secure yang memastikan cookies hanya dikirimkan melalui HTTPS. Namun, jika pengaturan ini tidak dikonfigurasi dengan benar atau ada kerentanan XSS, cookies bisa dicuri oleh penyerang, yang berpotensi menyebabkan pembajakan sesi.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+##### 1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+Dengan mengimpor UserCreationForm, kita dapat menciptakan fungsi untuk registrasi user yang nantinya akan disimpan dalam database. Untuk login perlu mengimpor authentication form dan authenticate untuk memvalidasi login pengguna. Sistem lalu mencari credentials dengan fungsi login(request, user). Jika berhasil maka pengguna dapat masuk ke website. Untuk logout, tinggal di redirect ke halaman login kembali. Kesemuanya lalu diupdate ke urls.py untuk di routing
+
+##### 2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+Dengan menggunakan fungsi register dan login sebelumnya, lalu menggunakan fungsi models pada tutorial sebelumnya untuk menciptakan product. Terakhir mengintegrasikan product dengan user dengan ForeignKey.
+
+##### 3. Menghubungkan model Product dengan User.
+Dengan menggunakan ForeignKey, yang merupakan fungsi Django untuk menghubungkan data product dengan user.
+
+##### 4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+Assign variabel 'name' pada request.user.username. Lalu variabel 'name' dapat kita gunakan pada main.html di direktori templates untuk menampilkan nama. Untuk cookies berupa kapan terakhir login, dapat dilakukan dengan menambahkan set_cookie('last_login', str(datetime.datetime.now())).

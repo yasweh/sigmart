@@ -16,10 +16,6 @@ def show_main(request):
 
     context = {
         'name': request.user.username,
-        'Name': '+1000 Rizz',
-        'Price': '30k Dollars',
-        'Description': 'Gives you 1000 point of rizz',
-        'Type': 'Consumable',
         'item_entries': item_entries,
         'last_login': request.COOKIES['last_login'],
     }

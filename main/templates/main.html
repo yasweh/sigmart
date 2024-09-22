@@ -2,51 +2,31 @@
 {% block content %}
 <h1>Sigmart</h1>
 
-<h5>Name: </h5>
-<p>{{ Name }}<p>
-
-<h5>Price:</h5>
-<p>{{ Price }}</p>
-
-<h5>Description:</h5>
-<p>{{ Description }}</p>
-
-<h5>Type:</h5>
-<p>{{ Type }}</p>
+<h3>Selamat Datang</h3>
+<p><strong>{{ name }}</strong><p>
 
 {% if not item_entries %}
 <p>Belum ada data item pada e-commerce Sigmart.</p>
 {% else %}
+<div class="item-grid"></div>
 <table>
-  <tr>
-    <th>Item Name</th>
-    <th>Time</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-
-  {% comment %} Berikut cara memperlihatkan data item di bawah baris ini 
-  {% endcomment %} 
   {% for item in item_entries %}
-  <tr>
-    <td>{{item.item_name}}</td>
-    <td>{{item.time}}</td>
-    <td>{{item.description}}</td>
-    <td>{{item.price}}</td>
-  </tr>
+  <div class="item-card">
+    <h3>{{ item.item_name }}</h3>
+    <p><strong>Time:</strong> {{ item.time }}</p>
+    <p><strong>Description:</strong> {{ item.description }}</p>
+    <p><strong>Price:</strong> {{ item.price }}</p>
+    <p><strong>Type:</strong> {{ item.type }}</p>
+  </div>
   {% endfor %}
 </table>
 {% endif %}
 
 <br />
 
-<a href="{% url 'main:add_item_entry' %}">
-  <button>Add New Item Entry</button>
-</a>
+<a href="{% url 'main:add_item_entry' %}" id="add-item-button">Add Item</a>
 
-<a href="{% url 'main:logout' %}"></a>
-  <button>Logout</button>
-</a>
+<a href="{% url 'main:logout' %}" id="logout-button">Logout</a>
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 

@@ -8,4 +8,5 @@ class AddItemEntry(models.Model):
     item_name = models.CharField(max_length=255)
     time = models.DateField(auto_now_add=True)
     description = models.TextField()
+    type = models.CharField(max_length=255)
     price = models.IntegerField()
