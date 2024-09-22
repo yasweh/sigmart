@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from main.models import MoodEntry
+from main.models import AddItemEntry
 
-class MoodEntryForm(ModelForm):
+class AddItemForm(ModelForm):
     class Meta:
-        model = MoodEntry
-        fields = ["mood", "feelings", "mood_intensity"]
+        model = AddItemEntry
+        fields = ["item_name", "description", "price"]

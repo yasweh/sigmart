@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
-from main.forms import MoodEntryForm
-from main.models import MoodEntry
+from main.forms import AddItemForm
+from main.models import AddItemEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.urls import reverse
@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login')
 def show_main(request):
-    mood_entries = MoodEntry.objects.all()
+    item_entries = AddItemEntry.objects.all()
 
     context = {
         'name': request.user.username,
@@ -20,44 +20,44 @@ def show_main(request):
         'Price': '30k Dollars',
         'Description': 'Gives you 1000 point of rizz',
         'Type': 'Consumable',
-        'mood_entries': mood_entries,
+        'item_entries': item_entries,
         'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
 
-def create_mood_entry(request):
-    form = MoodEntryForm(request.POST or None)
+def add_item_entry(request):
+    form = AddItemForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        mood_entry = form.save(commit=False)
-        mood_entry.user = request.user
-        mood_entry.save()
+        item_entry = form.save(commit=False)
+        item_entry.user = request.user
+        item_entry.save()
         return redirect('main:show_main')
 
     context = {'form': form}
-    return render(request, "create_mood_entry.html", context)
+    return render(request, "add_item_entry.html", context)
 
 def show_xml(request):
-    data = MoodEntry.objects.all()
+    data = AddItemEntry.objects.all()
 
 def show_xml(request):
-    data = MoodEntry.objects.all()
+    data = AddItemEntry.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = MoodEntry.objects.all()
+    data = AddItemEntry.objects.all()
 
 def show_json(request):
-    data = MoodEntry.objects.all()
+    data = AddItemEntry.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
-    data = MoodEntry.objects.filter(pk=id)
+    data = AddItemEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json_by_id(request, id):
-    data = MoodEntry.objects.filter(pk=id)
+    data = AddItemEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
