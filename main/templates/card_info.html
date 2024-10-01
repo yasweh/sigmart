@@ -1,0 +1,23 @@
+<div class="bg-black rounded-xl overflow-hidden border-2 border-grey">
+    <div class="p-4 animate-shine">
+        <h5 class="text-lg font-semibold text-white">{{ title }}</h5> <!-- Ubah ke text-white -->
+        <p class="text-white">{{ value }}</p> <!-- Ubah ke text-white -->
+    </div>
+</div>
+
+<style>
+    @keyframes shine {
+        0% {
+            background-position: -100%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+
+    .animate-shine {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%);
+        background-size: 200% 100%;
+        animation: shine 1.5s infinite linear; /* Ubah durasi sesuai keinginan */
+    }
+</style>

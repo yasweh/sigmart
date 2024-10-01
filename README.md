@@ -58,12 +58,12 @@ Saya mainly menggunakan kode yang ada di tutorial, namun dengan beberapa modifik
 
 ### Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
- ![XML](images/xml.png)
- ![JSON](images/json.png)
- ![XML by ID](images/xml_by_id.png)
- ![JSON by ID](images/json_by_id.png)
+![XML](images/xml.png)
+![JSON](images/json.png)
+![XML by ID](images/xml_by_id.png)
+![JSON by ID](images/json_by_id.png)
 
- ## Tugas 4
+## Tugas 4
 
 ### Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 Django UserCreationForm adalah form bawaan yang digunakan untuk membuat akun pengguna baru. Form ini menyediakan field dasar seperti username, password1, dan password2 (untuk verifikasi). Kelebihannya adalah kemudahan dalam penggunaan, karena Django telah menyediakan validasi keamanan dasar seperti memastikan kedua password cocok dan mematuhi kebijakan password yang diterapkan. Selain itu, UserCreationForm mudah diperluas atau disesuaikan. Kekurangannya adalah keterbatasan fungsionalitas default, seperti tidak menyertakan field tambahan yang mungkin diperlukan, misalnya alamat email, nama lengkap, atau informasi profil lain, sehingga membutuhkan kustomisasi jika diperlukan.
@@ -79,7 +79,6 @@ Penggunaan cookies tidak sepenuhnya aman secara default karena ada risiko sepert
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-
 ##### 1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
 Dengan mengimpor UserCreationForm, kita dapat menciptakan fungsi untuk registrasi user yang nantinya akan disimpan dalam database. Untuk login perlu mengimpor authentication form dan authenticate untuk memvalidasi login pengguna. Sistem lalu mencari credentials dengan fungsi login(request, user). Jika berhasil maka pengguna dapat masuk ke website. Untuk logout, tinggal di redirect ke halaman login kembali. Kesemuanya lalu diupdate ke urls.py untuk di routing
 
@@ -91,3 +90,40 @@ Dengan menggunakan ForeignKey, yang merupakan fungsi Django untuk menghubungkan 
 
 ##### 4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
 Assign variabel 'name' pada request.user.username. Lalu variabel 'name' dapat kita gunakan pada main.html di direktori templates untuk menampilkan nama. Untuk cookies berupa kapan terakhir login, dapat dilakukan dengan menambahkan set_cookie('last_login', str(datetime.datetime.now())).
+
+## Tugas 5
+
+### Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Jika terdapat beberapa CSS selector yang berlaku untuk satu elemen HTML, urutan prioritasnya diatur oleh specificity. Berikut adalah urutan prioritas pengambilan CSS selector dari yang paling tinggi ke paling rendah:
+
+Inline style
+External dan internal style sheets
+Browser default
+
+### Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Responsive design adalah konsep penting karena memungkinkan website untuk beradaptasi di berbagai ukuran layar dan perangkat, seperti desktop, tablet, atau ponsel. Pengguna dapat mengakses website dengan nyaman tanpa harus melakukan zoom-in atau scroll secara horizontal. Dengan semakin banyaknya perangkat mobile yang digunakan untuk browsing, responsive design menjadi esensial untuk memberikan pengalaman pengguna (UX) yang optimal. Contoh website yang belum menerapkan responsive design: Pacil Web Service (PWS), aren.cs.ui.ac.id/sda
+
+### Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+Margin: Ruang di luar elemen, antara elemen tersebut dengan elemen lainnya. Margin mengatur jarak antar elemen.
+Border: Garis yang mengelilingi elemen. Border bisa memiliki ketebalan, warna, dan jenis yang berbeda.
+Padding: Ruang di dalam elemen, antara konten elemen dan border elemen tersebut. Padding mengatur ruang di dalam elemen.
+
+### Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+Flexbox:
+Flexbox (Flexible Box Layout) digunakan untuk membuat tata letak yang fleksibel dan responsif dalam satu dimensi (baik baris atau kolom). Flexbox sangat berguna untuk mengatur elemen dalam satu baris atau kolom, seperti navbar, galeri gambar, atau item dalam kartu.
+
+Flex container: Elemen induk dengan properti display: flex.
+Flexbox sangat berguna untuk tata letak yang harus menyesuaikan ukuran elemen dengan proporsional dalam baris atau kolom.
+
+Grid Layout:
+Grid layout adalah sistem layout berbasis grid yang memungkinkan tata letak dua dimensi (baik baris maupun kolom). Grid lebih fleksibel untuk tata letak yang kompleks dan multikolon.
+
+Grid container: Elemen induk dengan properti display: grid.
+Grid item: Elemen anak dari grid container.
+Grid sangat cocok untuk membuat tata letak seperti halaman blog, portofolio, atau galeri produk yang terstruktur dengan baik.
+
+Kegunaan:
+Flexbox lebih baik untuk tata letak satu dimensi (baris atau kolom).
+Grid layout lebih cocok untuk tata letak dua dimensi, seperti layout yang memiliki banyak baris dan kolom yang kompleks.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
