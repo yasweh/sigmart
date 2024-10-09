@@ -127,3 +127,24 @@ Flexbox lebih baik untuk tata letak satu dimensi (baris atau kolom).
 Grid layout lebih cocok untuk tata letak dua dimensi, seperti layout yang memiliki banyak baris dan kolom yang kompleks.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Pertama-tama untuk mengedit dan menghapus produk, edit dapat dilakukan dengan menyetel fungsi yang mengubah data dengan data models yang sudah diinisiasikan sebelumnya dengan data yang baru diinput. Delete dapat diimplementasikan dengan menggunakan method .delete() dari django. Untuk kustomisasi, saya menggunakan CSS eksternal dan beberapa CSS internal dan inline untuk styling website. Untuk button edit dan delete setiap card, saya menggunakan for loop untuk menampilkan card sesuai banyaknya models, lalu mengintegrasikan button kedalam for loop tersebut sehingga setiap kali card dibuat, card tersebut juga akan diikuti oleh button untuk mengedit dan mendelete card tersebut. Untuk navbar, cukup membuat suatu navbar, lalu menginisiasikan button yang ingin ditampilkan di navbar tersebut.
+
+## Tugas 6
+
+### Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+JavaScript memungkinkan interaktivitas dan responsivitas pada aplikasi web, seperti validasi form, animasi, dan update konten secara dinamis tanpa harus me-reload halaman. Selain itu, JavaScript juga mempercepat performa web dengan menjalankan logika pada sisi klien dan mendukung pengembangan full-stack dengan platform seperti Node.js.
+
+### Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+await digunakan untuk menunggu hasil dari operasi asynchronous. Jika tidak menggunakan await, fetch() akan mengembalikan Promise, dan kode di bawahnya akan dieksekusi sebelum respons diterima, menyebabkan hasil yang tidak valid atau belum tersedia.
+
+### Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+csrf_exempt menonaktifkan perlindungan Cross-Site Request Forgery (CSRF) pada view tertentu. Ini diperlukan karena permintaan AJAX biasanya tidak menyertakan token CSRF secara default, sehingga permintaan POST bisa gagal tanpa decorator ini.
+
+### Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Pembersihan data input di backend penting untuk memastikan keamanan dan konsistensi data. Validasi di frontend bisa di-bypass oleh pengguna yang tidak jujur atau melalui alat-alat seperti curl, Postman atau menyerang menggunakan teknik tertentu seperti XSS, sehingga backend harus memeriksa ulang untuk menghindari serangan atau kesalahan data.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Untuk mengubah tugas yang ada menjadi menggunakan AJAX, pertama, kode data "mood" harus mendukung AJAX GET untuk pengambilan data secara asinkronus, memastikan hanya data pengguna yang sedang masuk yang diambil. Kode HTML yang mengelola mood harus diubah untuk menampilkan data mood terbaru tanpa melakukan reload penuh halaman. Selain itu, tombol baru ditambahkan untuk membuka modal yang berisi form guna menambahkan mood baru, dan form ini akan terhubung dengan fungsi view yang menangani path "/create-ajax/". Ketika form ini disubmit, data akan dikirim menggunakan AJAX POST, dan halaman akan diperbarui secara asinkronus tanpa memuat ulang keseluruhan halaman.
+
+Selain itu, tampilan modal dan transisinya diatur dengan JavaScript, memungkinkan modal untuk muncul dan hilang dengan animasi yang halus. Fungsi JavaScript tambahan digunakan untuk menambah data item baru melalui AJAX POST dan kemudian memuat ulang daftar item menggunakan AJAX GET setelah penambahan berhasil. Form yang ada di dalam modal juga di-reset setelah data berhasil disubmit, memberikan pengalaman pengguna yang lebih interaktif dan dinamis tanpa memerlukan refresh halaman secara penuh.
+
